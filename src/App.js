@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-function App() {
+//View
+import HomeView from './views/HomeView';
+import RaisedHandsView from './views/RaisedHandsView';
+import ReactionsView from './views/ReactionsView';
+import PickStudentView from './views/PickStudentView';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <h1>Conference Co-Pilot</h1>
+      <Switch>
+        <Route path='/raised-hands'>
+          <RaisedHandsView />
+        </Route>
+        <Route path='/reactions'>
+          <ReactionsView />
+        </Route>
+        <Route path='/pick-student'>
+          <PickStudentView />
+        </Route>
+        <Route path='/'>
+          <HomeView />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
