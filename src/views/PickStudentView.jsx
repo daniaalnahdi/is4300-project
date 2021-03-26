@@ -13,6 +13,17 @@ const PickStudentView = () => {
   return (
     <div>
       <h2>Pick Student View</h2>
+      <div>
+        Pick:
+        <label>
+          <input type='radio' name='foo' value='1' />
+          Randomly
+        </label>
+        <label>
+          <input type='radio' name='foo' value='2' />
+          Low Participation
+        </label>
+      </div>
       <p>{pickedStudent}</p>
       <button onClick={() => setPickedStudent(getRandomStudent())}>
         Pick Another Student
