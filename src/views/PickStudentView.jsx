@@ -24,7 +24,7 @@ const PickStudentView = () => {
       <div>
         Pick:
         <label>
-          <input type='radio' name='foo' value='1' checked/>
+          <input type='radio' name='foo' value='1'/>
           Randomly
         </label>
         <label>
