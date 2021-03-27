@@ -4,11 +4,19 @@ import { Link } from 'react-router-dom';
 import students from '../data/students';
 
 const PickStudentView = () => {
-  const getRandomStudent = () => {
-    return students[~~(Math.random() * students.length)];
-  };
+  const [pickedStudent, setPickedStudent] = useState(students[0]);
 
-  const [pickedStudent, setPickedStudent] = useState(getRandomStudent());
+  const getRandomStudent = () => {
+    var randomInteger = ~~(Math.random() * students.length);
+
+    if (students[randomInteger] === pickedStudent) {
+      return randomInteger === students.length - 1
+        ? students[0]
+        : students[randomInteger + 1];
+    } else {
+      return students[randomInteger];
+    }
+  };
 
   return (
     <div>
@@ -16,7 +24,7 @@ const PickStudentView = () => {
       <div>
         Pick:
         <label>
-          <input type='radio' name='foo' value='1' />
+          <input type='radio' name='foo' value='1' checked/>
           Randomly
         </label>
         <label>
