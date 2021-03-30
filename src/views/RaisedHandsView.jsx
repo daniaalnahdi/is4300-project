@@ -39,7 +39,7 @@ const RaisedHandsView = () => {
             </ul>
           </div>
           <Link to='/pick-student'>
-            <button className="button is-info is-medium pick-student-button">🧑 Pick a Student</button>
+            <button className="button is-info is-medium pick-student-button">🧑 Go to Pick a Student</button>
           </Link>
         </div>
       </main>
