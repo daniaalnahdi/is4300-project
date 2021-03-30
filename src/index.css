@@ -6,6 +6,7 @@ body {
 }
 
 body {
+  font-size: 20px;
   margin: 0;
   text-align: center;
   display: flex;
@@ -20,21 +21,22 @@ body {
   /* align-items: center; */
 }
 
-.two-col-layout {
-display: flex;
-}
-
-.two-col-left {
-  margin-left: 2em;
+.box {
+  width: 1200px;
 }
 
 header {
-  margin-top: 5em;
+  margin-top: 2.5em;
   padding-bottom: 1em;
 }
 
 main {
-  height: 450px;
+  height: 650px;
+}
+
+h1,
+h2 {
+  text-align: center;
 }
 
 h2 {
@@ -60,8 +62,4 @@ h2 {
 
 .done-button {
   width: 280px;
-}
-
-.pick-student-button {
-  margin-right: -500px;
 }
