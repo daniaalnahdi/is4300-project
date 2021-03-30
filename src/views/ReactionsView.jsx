@@ -3,24 +3,26 @@ import { Link } from 'react-router-dom';
 
 const ReactionsView = () => {
   return (
-    <div>
-      <h2>Reactions View</h2>
-      <ul>
-        <li>👍 0 0%</li>
-        <li>👏 0 0%</li>
-        <li>❤️ 0 0%</li>
-        <li>😂 0 0%</li>
-        <li>😮 0 0%</li>
-        <li>🎉 0 0%</li>
-        <li>✅ 0 0%</li>
-        <li>❌ 0 0%</li>
-        <li>No Reactions: 0</li>
-      </ul>
-      <p>Total students: 0</p>
+    <>
+      <main>
+        <h2 className='is-size-3 has-text-weight-medium	'>View Reactions</h2>
+        <ul>
+          <li>👍 0 0%</li>
+          <li>👏 0 0%</li>
+          <li>❤️ 0 0%</li>
+          <li>😂 0 0%</li>
+          <li>😮 0 0%</li>
+          <li>🎉 0 0%</li>
+          <li>✅ 0 0%</li>
+          <li>❌ 0 0%</li>
+          <li>No Reactions: 0</li>
+        </ul>
+        <p>Total students: 0</p>
+      </main>
       <Link to='/'>
-        <button>Done</button>
+        <button className='button is-success is-large done-button'>Done</button>
       </Link>
-    </div>
+    </>
   );
 };
 

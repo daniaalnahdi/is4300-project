@@ -19,27 +19,29 @@ const PickStudentView = () => {
   };
 
   return (
-    <div>
-      <h2>Pick Student View</h2>
-      <div>
-        Pick:
-        <label>
-          <input type='radio' name='foo' value='1'/>
-          Randomly
-        </label>
-        <label>
-          <input type='radio' name='foo' value='2' />
-          Low Participation
-        </label>
-      </div>
-      <p>{pickedStudent}</p>
-      <button onClick={() => setPickedStudent(getRandomStudent())}>
-        Pick Another Student
-      </button>
+    <>
+      <main>
+        <h2 className='is-size-3 has-text-weight-medium	'>Pick a Student</h2>
+        <div>
+          Pick:
+          <label>
+            <input type='radio' name='foo' value='1' />
+            Randomly
+          </label>
+          <label>
+            <input type='radio' name='foo' value='2' />
+            Low Participation
+          </label>
+        </div>
+        <p>{pickedStudent}</p>
+        <button className="button is-info is-medium is-outlined" onClick={() => setPickedStudent(getRandomStudent())}>
+          Pick Another Student
+        </button>
+      </main>
       <Link to='/'>
-        <button>Done</button>
+        <button className="button is-success is-large done-button">Done</button>
       </Link>
-    </div>
+    </>
   );
 };
 
