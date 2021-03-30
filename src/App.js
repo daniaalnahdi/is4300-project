@@ -12,7 +12,9 @@ const App = () => {
     <div className='center'>
       <div className='container'>
         <header>
-          <h1 className='is-size-4'>Conference Co-Pilot</h1>
+          <h1 className='is-size-4 has-text-weight-medium has-text-grey-light	'>
+            Conference Co-Pilot
+          </h1>
         </header>
         <Router>
           <Switch>

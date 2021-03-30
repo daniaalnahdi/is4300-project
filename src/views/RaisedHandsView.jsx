@@ -19,7 +19,7 @@ const RaisedHandsView = () => {
   return (
     <>
       <main>
-        <h2 className='is-size-3 has-text-weight-medium'>View Raised Hands </h2>
+        <h2 className='is-size-3 has-text-weight-medium has-text-grey'>View Raised Hands </h2>
         <div className='two-col-layout'>
           <div className='two-col-left'>
             <img src={Loader} style={{ width: '50px' }} />

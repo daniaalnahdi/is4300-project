@@ -5,7 +5,9 @@ const ReactionsView = () => {
   return (
     <>
       <main>
-        <h2 className='is-size-3 has-text-weight-medium	'>View Reactions</h2>
+        <h2 className='is-size-3 has-text-weight-medium	has-text-grey'>
+          View Reactions
+        </h2>
         <ul>
           <li>👍 0 0%</li>
           <li>👏 0 0%</li>

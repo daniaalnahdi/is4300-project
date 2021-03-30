@@ -21,7 +21,9 @@ const PickStudentView = () => {
   return (
     <>
       <main>
-        <h2 className='is-size-3 has-text-weight-medium	'>Pick a Student</h2>
+        <h2 className='is-size-3 has-text-weight-medium	has-text-grey'>
+          Pick a Student
+        </h2>
         <div>
           Pick:
           <label>
@@ -34,12 +36,15 @@ const PickStudentView = () => {
           </label>
         </div>
         <p>{pickedStudent}</p>
-        <button className="button is-info is-medium is-outlined" onClick={() => setPickedStudent(getRandomStudent())}>
+        <button
+          className='button is-info is-medium is-outlined'
+          onClick={() => setPickedStudent(getRandomStudent())}
+        >
           Pick Another Student
         </button>
       </main>
       <Link to='/'>
-        <button className="button is-success is-large done-button">Done</button>
+        <button className='button is-success is-large done-button'>Done</button>
       </Link>
     </>
   );
