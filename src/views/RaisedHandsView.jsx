@@ -6,13 +6,18 @@ import students from '../data/students';
 
 const RaisedHandsView = () => {
   //todo: reowork the timer function to set in intervals
-  const [show, setShow] = useState(false);
-  const delay = 5;
+  const [showFirst, setShowFirst] = useState(false);
+  const firstDelay = 2;
+
+  const [showSecond, setShowSecond] = useState(false);
+  const secondDelay = 4;
 
   useEffect(() => {
-    let timer = setTimeout(() => setShow(true), delay * 1000);
+    let firstTimer = setTimeout(() => setShowFirst(true), firstDelay * 1000);
+    let secondTimer = setTimeout(() => setShowSecond(true), secondDelay * 1000);
     return () => {
-      clearTimeout(timer);
+      clearTimeout(firstTimer);
+      clearTimeout(secondTimer);
     };
   }, []);
 
@@ -40,13 +45,16 @@ const RaisedHandsView = () => {
               <option>Random</option>
             </select>
           </div>
-          {show && (
-            <ul className='is-size-3'>
-              {students.map((name, idx) => {
-                return idx <= 2 && <li key={idx}>{name}</li>;
+          <ul className='is-size-3'>
+            {showFirst &&
+              students.map((name, idx) => {
+                return idx <= 1 && <li key={idx}>{name}</li>;
               })}
-            </ul>
-          )}
+            {showSecond &&
+              students.map((name, idx) => {
+                return idx > 1 && idx < 4 && <li key={idx}>{name}</li>;
+              })}
+          </ul>
         </div>
         <p className='has-text-weight-semibold'>Currently Raised Hands</p>
         <p className='has-text-grey'>
@@ -58,7 +66,7 @@ const RaisedHandsView = () => {
         >
           {students.map((name, idx) => {
             return (
-              idx > 2 && (
+              idx > 3 && (
                 <li key={idx} style={{}}>
                   {name}
                 </li>
