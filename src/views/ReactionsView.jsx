@@ -6,14 +6,31 @@ const ReactionsView = () => {
 
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [noReactions, setNoReactions] = useState(totalStudents);
+  const [thumbsUp, setThumbsUp] = useState(0);
+
+  let thumbsUpPercent = Math.round((thumbsUp / totalStudents) * 100);
 
   useEffect(() => {
-    let timer = setInterval(
-      () => setTimeElapsed((prevState) => prevState + 1),
-      1000
-    );
+    let timer = setInterval(() => {
+      setTimeElapsed((prevState) => prevState + 1);
+    }, 1000);
+
+    let reactionsLimit = 26;
+    let reactionsIncrement = 4;
+
+    let updateReactions = setInterval(() => {
+      // 5 instances
+      reactionsLimit = reactionsLimit - reactionsIncrement;
+
+      if (reactionsLimit > 0) {
+        setThumbsUp((prevState) => prevState + reactionsIncrement);
+        setNoReactions((prevState) => prevState - reactionsIncrement);
+      }
+    }, 500);
+
     return () => {
       clearInterval(timer);
+      clearInterval(updateReactions);
     };
   }, []);
 
@@ -35,8 +52,8 @@ const ReactionsView = () => {
           >
             <div className='columns mb-1'>
               <div className='column '>👍</div>
-              <div className='column'>0</div>
-              <div className='column has-text-grey'>0%</div>
+              <div className='column'>{thumbsUp}</div>
+              <div className='column has-text-grey'>{thumbsUpPercent}%</div>
             </div>
             <div className='columns mb-1'>
               <div className='column '>👏</div>
@@ -74,7 +91,9 @@ const ReactionsView = () => {
               <div className='column has-text-grey'>0%</div>
             </div>
           </div>
-          <span className='has-text-weight-medium mt-3 mr-6'>No reactions: {noReactions}</span>
+          <span className='has-text-weight-medium mt-3 mr-6'>
+            No reactions: {noReactions}
+          </span>
           <span>Total students: {totalStudents}</span>
         </div>
       </main>

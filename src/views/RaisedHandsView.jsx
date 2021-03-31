@@ -9,7 +9,6 @@ import studentsSortedAlpha from '../data/studentsSortedAlpha';
 import studentsSortedRandom from '../data/studentsSortedRandom';
 
 const RaisedHandsView = () => {
-  //todo: reowork the timer function to set in intervals
   const [studentsArray, setStudentsArray] = useState(students);
 
   const [showFirst, setShowFirst] = useState(false);
