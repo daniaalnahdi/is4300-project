@@ -31,7 +31,7 @@ header {
 }
 
 main {
-  height: 620px;
+  height: 650px;
 }
 
 h1,
@@ -52,12 +52,13 @@ h2 {
 }
 
 .home-button {
-  width: 350px;
+  width: 450px;
   display: block;
   margin-top: 1em;
   margin-bottom: 1em;
   text-align: left;
   padding-left: 2em;
+  font-size: 2rem !important;
 }
 
 .done-button {
@@ -68,4 +69,8 @@ h2 {
   font-size: 3rem !important;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+}
+
+.reactions-list {
+  font-size: 1.75rem;
 }

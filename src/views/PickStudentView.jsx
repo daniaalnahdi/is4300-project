@@ -33,7 +33,7 @@ const PickStudentView = () => {
               <input
                 type='radio'
                 name='foobar'
-                checked={selectedOption == 1}
+                checked={selectedOption === 1}
                 onChange={() => setSelectedOption(1)}
                 className='mr-1'
               />
@@ -43,7 +43,7 @@ const PickStudentView = () => {
               <input
                 type='radio'
                 name='foobar'
-                checked={selectedOption == 2}
+                checked={selectedOption === 2}
                 onChange={() => setSelectedOption(2)}
                 className='mr-1'
               />
@@ -51,7 +51,7 @@ const PickStudentView = () => {
             </label>
           </div>
 
-          <p className='is-size-2' id="picked-student">{pickedStudent}</p>
+          <p className='is-size-2 ' id="picked-student">{pickedStudent}</p>
           <button
             className='button is-info is-medium is-outlined'
             onClick={() => setPickedStudent(getRandomStudent())}
