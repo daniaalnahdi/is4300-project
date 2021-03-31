@@ -16,7 +16,7 @@ const App = () => {
             Conference Co-Pilot
           </h1>
         </header>
-        <Router>
+        <Router basename="/is4300-project">
           <Switch>
             <Route path='/raised-hands'>
               <RaisedHandsView />
