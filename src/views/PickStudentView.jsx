@@ -5,6 +5,7 @@ import students from '../data/students';
 
 const PickStudentView = () => {
   const [pickedStudent, setPickedStudent] = useState(students[0]);
+  const [selectedOption, setSelectedOption] = useState(1);
 
   const getRandomStudent = () => {
     var randomInteger = ~~(Math.random() * students.length);
@@ -25,20 +26,32 @@ const PickStudentView = () => {
           Pick a Student
         </h2>
         <div className='box'>
-          <div class='control'>
-            <span className='has-text-weight-medium'>Pick:</span>
+          <div className='control is-size-5'>
+            <span className='has-text-weight-medium mr-3'>Pick:</span>
 
-            <label class='radio'>
-              <input type='radio' name='foobar' checked/>
+            <label className='radio mr-4'>
+              <input
+                type='radio'
+                name='foobar'
+                checked={selectedOption == 1}
+                onChange={() => setSelectedOption(1)}
+                className='mr-1'
+              />
               Randomly
             </label>
-            <label class='radio'>
-              <input type='radio' name='foobar' />
+            <label className='radio'>
+              <input
+                type='radio'
+                name='foobar'
+                checked={selectedOption == 2}
+                onChange={() => setSelectedOption(2)}
+                className='mr-1'
+              />
               Low Participation
             </label>
           </div>
 
-          <p className='is-size-2'>{pickedStudent}</p>
+          <p className='is-size-2' id="picked-student">{pickedStudent}</p>
           <button
             className='button is-info is-medium is-outlined'
             onClick={() => setPickedStudent(getRandomStudent())}

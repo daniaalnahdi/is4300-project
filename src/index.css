@@ -40,7 +40,7 @@ h2 {
 }
 
 h2 {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .home-buttons-list {
@@ -62,4 +62,10 @@ h2 {
 
 .done-button {
   width: 280px;
+}
+
+#picked-student {
+  font-size: 3rem !important;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
