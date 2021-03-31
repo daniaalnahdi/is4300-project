@@ -104,7 +104,7 @@ const RaisedHandsView = () => {
           })}
         </ul>
         <hr />
-        <span className='mr-4'>Still looking for other students?</span>{' '}
+        <span className='mr-4'>Is no one volunteering?</span>{' '}
         <Link to='/pick-student'>
           <button className='button is-info is-default'>
             🧑 Go to Pick a Student
