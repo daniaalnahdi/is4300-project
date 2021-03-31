@@ -29,14 +29,19 @@ const RaisedHandsView = () => {
         </h2>
         <div className='box'>
           <div>
-            <ClipLoader color={'hsl(204, 86%, 53%)'} loading={true} size={30} />
-
-            <span className='is-size-4 has-text-weight-medium '>
+            <span className='mr-3'>
+              <ClipLoader
+                color={'hsl(204, 86%, 53%)'}
+                loading={true}
+                size={30}
+              />
+            </span>
+            <span className='is-size-4 has-text-weight-medium'>
               Waiting for newly raised hands...
             </span>
           </div>
 
-          <div class='select is-normal'>
+          <div className='select is-normal mt-4'>
             <select>
               <option>Sort by...</option>
               <option>Lowest to highest participation</option>
@@ -45,14 +50,14 @@ const RaisedHandsView = () => {
               <option>Random</option>
             </select>
           </div>
-          <ul className='is-size-3'>
+          <ul className='is-size-3 mt-5'>
             {showFirst &&
               students.map((name, idx) => {
                 return idx <= 1 && <li key={idx}>{name}</li>;
               })}
             {showSecond &&
               students.map((name, idx) => {
-                return idx > 1 && idx < 4 && <li key={idx}>{name}</li>;
+                return idx > 1 && idx < 3 && <li key={idx}>{name}</li>;
               })}
           </ul>
         </div>
@@ -61,13 +66,13 @@ const RaisedHandsView = () => {
           These are persisting raised hands prior to visiting this page.
         </p>
         <ul
-          className='is-size-4'
+          className='is-size-4 mt-3'
           style={{ display: 'flex', justifyContent: 'center' }}
         >
           {students.map((name, idx) => {
             return (
-              idx > 3 && (
-                <li key={idx} style={{}}>
+              idx > 2 && (
+                <li key={idx} className='mr-6'>
                   {name}
                 </li>
               )
@@ -75,9 +80,9 @@ const RaisedHandsView = () => {
           })}
         </ul>
         <hr />
-        <span>Still looking for other students?</span>{' '}
+        <span className='mr-4'>Still looking for other students?</span>{' '}
         <Link to='/pick-student'>
-          <button className='button is-info is-medium'>
+          <button className='button is-info is-default'>
             🧑 Go to Pick a Student
           </button>
         </Link>

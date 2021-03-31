@@ -4,7 +4,6 @@ const students = [
   'Student 3',
   'Student 4',
   'Student 5',
-  'Student 6',
 ];
 
 //TO DO, NOT EXPORTED YET

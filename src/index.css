@@ -31,7 +31,7 @@ header {
 }
 
 main {
-  height: 650px;
+  height: 620px;
 }
 
 h1,
@@ -40,7 +40,7 @@ h2 {
 }
 
 h2 {
-  padding: 1em;
+  margin-bottom: 5px;
 }
 
 .home-buttons-list {
