@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 
 import students from '../data/students';
+import studentsSortedLowest from '../data/studentsSortedLowest';
+import studentsSortedHighest from '../data/studentsSortedHighest';
+import studentsSortedAlpha from '../data/studentsSortedAlpha';
+import studentsSortedRandom from '../data/studentsSortedRandom';
 
 const RaisedHandsView = () => {
   //todo: reowork the timer function to set in intervals
+  const [studentsArray, setStudentsArray] = useState(students);
+
   const [showFirst, setShowFirst] = useState(false);
   const firstDelay = 2;
 
@@ -21,6 +27,24 @@ const RaisedHandsView = () => {
     };
   }, []);
 
+  const sortStudentsArray = (sort) => {
+    switch (sort) {
+      case 'lowest':
+        setStudentsArray(studentsSortedLowest);
+        break;
+      case 'highest':
+        setStudentsArray(studentsSortedHighest);
+        break;
+      case 'alpha':
+        setStudentsArray(studentsSortedAlpha);
+        break;
+      case 'random':
+        setStudentsArray(studentsSortedRandom);
+        break;
+      default:
+        setStudentsArray((prevState) => prevState);
+    }
+  };
   return (
     <>
       <main>
@@ -42,21 +66,21 @@ const RaisedHandsView = () => {
           </div>
 
           <div className='select is-normal mt-4'>
-            <select>
-              <option>Sort by...</option>
-              <option>Lowest to highest participation</option>
-              <option>Highest to lowest participation</option>
-              <option>Alphabetical</option>
-              <option>Random</option>
+            <select onChange={(e) => sortStudentsArray(e.currentTarget.value)}>
+              <option value={'default'}>Sort by...</option>
+              <option value={'lowest'}>Lowest to highest participation</option>
+              <option value={'highest'}>Highest to lowest participation</option>
+              <option value={'alpha'}>Alphabetical</option>
+              <option value={'random'}>Random</option>
             </select>
           </div>
           <ul className='is-size-3 mt-5'>
             {showFirst &&
-              students.map((name, idx) => {
+              studentsArray.map((name, idx) => {
                 return idx <= 1 && <li key={idx}>{name}</li>;
               })}
             {showSecond &&
-              students.map((name, idx) => {
+              studentsArray.map((name, idx) => {
                 return idx > 1 && idx < 3 && <li key={idx}>{name}</li>;
               })}
           </ul>
@@ -71,7 +95,8 @@ const RaisedHandsView = () => {
         >
           {students.map((name, idx) => {
             return (
-              idx > 2 && (
+              idx > 2 &&
+              idx < 5 && (
                 <li key={idx} className='mr-6'>
                   {name}
                 </li>

@@ -1,9 +1,14 @@
 const students = [
-  'Student 1',
-  'Student 2',
-  'Student 3',
-  'Student 4',
-  'Student 5',
+  'Johnny McDonald',
+  'Carolyn Armstrong',
+  'Jane Fuller',
+  'Albert Rios',
+  'Bryan Campbell',
+  'Ann Perry',
+  'Catherine Matthews',
+  'Phillip Lawson',
+  'Christina Ruiz',
+  'Julie Edwards',
 ];
 
 //TO DO, NOT EXPORTED YET

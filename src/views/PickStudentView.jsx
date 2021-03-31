@@ -34,7 +34,10 @@ const PickStudentView = () => {
                 type='radio'
                 name='foobar'
                 checked={selectedOption === 1}
-                onChange={() => setSelectedOption(1)}
+                onChange={() => {
+                  setSelectedOption(1);
+                  setPickedStudent(getRandomStudent());
+                }}
                 className='mr-1'
               />
               Randomly
@@ -44,14 +47,19 @@ const PickStudentView = () => {
                 type='radio'
                 name='foobar'
                 checked={selectedOption === 2}
-                onChange={() => setSelectedOption(2)}
+                onChange={() => {
+                  setSelectedOption(2);
+                  setPickedStudent(getRandomStudent());
+                }}
                 className='mr-1'
               />
               Low Participation
             </label>
           </div>
 
-          <p className='is-size-2 ' id="picked-student">{pickedStudent}</p>
+          <p className='is-size-2 ' id='picked-student'>
+            {pickedStudent}
+          </p>
           <button
             className='button is-info is-medium is-outlined'
             onClick={() => setPickedStudent(getRandomStudent())}
