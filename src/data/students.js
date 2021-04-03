@@ -1,7 +1,7 @@
 const students = [
   'Johnny McDonald',
-  'Carolyn Armstrong',
   'Jane Fuller',
+  'Carolyn Armstrong',
   'Albert Rios',
   'Bryan Campbell',
   'Ann Perry',
