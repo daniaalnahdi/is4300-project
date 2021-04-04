@@ -80,7 +80,7 @@ const RaisedHandsView = () => {
                   idx <= 1 && (
                     <li key={idx}>
                       {name}{' '}
-                      <span className='is-size-6 has-text-weight-bold has-text-grey'>
+                      <span className='is-size-6 has-text-weight-semibold has-text-grey'>
                         (few seconds ago)
                       </span>
                     </li>
@@ -94,7 +94,7 @@ const RaisedHandsView = () => {
                   idx < 3 && (
                     <li key={idx}>
                       {name}{' '}
-                      <span className='is-size-6 has-text-weight-bold has-text-grey'>
+                      <span className='is-size-6 has-text-weight-semibold has-text-grey'>
                         (few seconds ago)
                       </span>
                     </li>
@@ -108,7 +108,7 @@ const RaisedHandsView = () => {
                 idx < 5 && (
                   <li key={idx} className='mr-6 has-text-grey'>
                     {name}{' '}
-                    <span className='is-size-6 has-text-weight-bold'>
+                    <span className='is-size-6 has-text-weight-semibold'>
                       (2 minutes ago)
                     </span>
                   </li>

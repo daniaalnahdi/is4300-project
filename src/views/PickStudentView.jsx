@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Slider } from '@material-ui/core';
 
 import students from '../data/students';
 
 const PickStudentView = () => {
   const [pickedStudent, setPickedStudent] = useState(students[0]);
   const [selectedOption, setSelectedOption] = useState(1);
+  const [sliderValue, setSliderValue] = useState([0, 50]);
 
   const getRandomStudent = () => {
     var randomInteger = ~~(Math.random() * students.length);
@@ -53,8 +55,36 @@ const PickStudentView = () => {
                 }}
                 className='mr-1'
               />
-              Low Participation
+              Participation
             </label>
+          </div>
+
+          <div
+            className='mt-5'
+            style={
+              selectedOption === 2
+                ? { display: 'flex', justifyContent: 'center' }
+                : { display: 'none' }
+            }
+          >
+            <div style={{ marginRight: '5em', marginLeft: '5em' }}></div>
+            <span className='has-text-weight-medium is-size-5'>
+              Low Participation
+            </span>
+            <Slider
+              value={sliderValue}
+              onChange={(e, newValue) => {
+                setSliderValue(newValue);
+                setPickedStudent(getRandomStudent());
+              }}
+              valueLabelDisplay='auto'
+              aria-labelledby='range-slider'
+              valueLabelDisplay='off'
+            />
+            <span className='has-text-weight-medium is-size-5'>
+              High Participation
+            </span>
+            <div style={{ marginRight: '5em', marginLeft: '5em' }}></div>
           </div>
 
           <p className='is-size-2 ' id='picked-student'>
