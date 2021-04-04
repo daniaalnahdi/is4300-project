@@ -76,40 +76,61 @@ const RaisedHandsView = () => {
           <ul className='is-size-3 mt-5'>
             {showFirst &&
               studentsArray.map((name, idx) => {
-                return idx <= 1 && <li key={idx}>{name}</li>;
+                return (
+                  idx <= 1 && (
+                    <li key={idx}>
+                      {name}{' '}
+                      <span className='is-size-6 has-text-weight-semibold has-text-grey'>
+                        (few seconds ago)
+                      </span>
+                    </li>
+                  )
+                );
               })}
             {showSecond &&
               studentsArray.map((name, idx) => {
-                return idx > 1 && idx < 3 && <li key={idx}>{name}</li>;
+                return (
+                  idx > 1 &&
+                  idx < 3 && (
+                    <li key={idx}>
+                      {name}{' '}
+                      <span className='is-size-6 has-text-weight-semibold has-text-grey'>
+                        (few seconds ago)
+                      </span>
+                    </li>
+                  )
+                );
               })}
+              <hr/>
+            {students.map((name, idx) => {
+              return (
+                idx > 2 &&
+                idx < 5 && (
+                  <li key={idx} className='mr-6 has-text-grey'>
+                    {name}{' '}
+                    <span className='is-size-6 has-text-weight-semibold'>
+                      (2 minutes ago)
+                    </span>
+                  </li>
+                )
+              );
+            })}
           </ul>
         </div>
-        <p className='has-text-weight-semibold'>Currently Raised Hands</p>
-        <p className='has-text-grey'>
-          These are persisting raised hands prior to visiting this page.
-        </p>
-        <ul
-          className='is-size-4 mt-3'
-          style={{ display: 'flex', justifyContent: 'center' }}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          {students.map((name, idx) => {
-            return (
-              idx > 2 &&
-              idx < 5 && (
-                <li key={idx} className='mr-6'>
-                  {name}
-                </li>
-              )
-            );
-          })}
-        </ul>
-        <hr />
-        <span className='mr-4'>Is no one volunteering?</span>{' '}
-        <Link to='/pick-student'>
-          <button className='button is-info is-default'>
-            🧑 Go to Pick a Student
-          </button>
-        </Link>
+          <span className='mr-4'>Is no one volunteering?</span>{' '}
+          <Link to='/pick-student'>
+            <button className='button is-info is-medium'>
+              🧑 Go to Pick a Student
+            </button>
+          </Link>
+        </div>
       </main>
 
       <Link to='/'>
