@@ -7,6 +7,7 @@ const HomeView = () => {
       <main>
         <div className='home-buttons-list'>
           <Link to='/raised-hands'>
+            <span className='notify-badge'>2</span>
             <button className='button is-info is-large home-button'>
               ✋ View Raised Hands
             </button>
