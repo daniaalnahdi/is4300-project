@@ -1,8 +1,10 @@
 //  for raised hands
 export const studentsSortedLowest = [
-    'Jane Fuller',
-    'Carolyn Armstrong',
-    'Johnny McDonald',
-  ];
+  'Jane Fuller',
+  'Albert Rios',
+  'Bryan Campbell',
+  'Johnny McDonald',
+  'Carolyn Armstrong',
+];
 
-  export default studentsSortedLowest;
+export default studentsSortedLowest;

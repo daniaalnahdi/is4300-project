@@ -6,7 +6,7 @@ const ReactionsView = () => {
 
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [noReactions, setNoReactions] = useState(totalStudents);
-  const [thumbsUp, setThumbsUp] = useState(0);
+  const [thumbsUp, setThumbsUp] = useState(1);
 
   let thumbsUpPercent = Math.round((thumbsUp / totalStudents) * 100);
 
@@ -15,7 +15,7 @@ const ReactionsView = () => {
       setTimeElapsed((prevState) => prevState + 1);
     }, 1000);
 
-    let reactionsLimit = 26;
+    let reactionsLimit = 25;
     let reactionsIncrement = 4;
 
     let updateReactions = setInterval(() => {
@@ -42,9 +42,7 @@ const ReactionsView = () => {
         </h2>
         <div className='box'>
           <p className='has-text-weight-semibold'>
-            Reactions during this{' '}
-            <span className='has-text-info'>{timeElapsed}</span> second
-            period...
+            Reactions during this <span>{timeElapsed}</span> second period...
           </p>
           <div
             className='has-text-weight-bold mt-3 reactions-list'
@@ -91,10 +89,10 @@ const ReactionsView = () => {
               <div className='column has-text-grey'>0%</div>
             </div>
           </div>
+          <span className='mt-3 mr-6'>Total students: {totalStudents + 1}</span>
           <span className='has-text-weight-medium mt-3 mr-6'>
-            No reactions: {noReactions}
+            Students without reactions: {noReactions}
           </span>
-          <span>Total students: {totalStudents}</span>
         </div>
       </main>
       <Link to='/'>

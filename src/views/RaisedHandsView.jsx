@@ -5,8 +5,7 @@ import { ClipLoader } from 'react-spinners';
 import students from '../data/students';
 import studentsSortedLowest from '../data/studentsSortedLowest';
 import studentsSortedHighest from '../data/studentsSortedHighest';
-import studentsSortedAlpha from '../data/studentsSortedAlpha';
-import studentsSortedRandom from '../data/studentsSortedRandom';
+import studentsSortedOldest from '../data/studentsSortedOldest';
 
 const RaisedHandsView = () => {
   const [studentsArray, setStudentsArray] = useState(students);
@@ -14,15 +13,29 @@ const RaisedHandsView = () => {
   const [showFirst, setShowFirst] = useState(false);
   const firstDelay = 2;
 
-  const [showSecond, setShowSecond] = useState(false);
+  const [showLast, setShowSecond] = useState(false);
   const secondDelay = 4;
+
+  const [flashColorShowFirst, setFlashColorShowFirst] = useState(true);
+  const [flashColorShowLast, setFlashColorShowLast] = useState(true);
 
   useEffect(() => {
     let firstTimer = setTimeout(() => setShowFirst(true), firstDelay * 1000);
+    let firstFlashTimer = setTimeout(
+      () => setFlashColorShowFirst(false),
+      firstDelay * 1000 + 500
+    );
+
     let secondTimer = setTimeout(() => setShowSecond(true), secondDelay * 1000);
+    let secondFlashTimer = setTimeout(
+      () => setFlashColorShowLast(false),
+      secondDelay * 1000 + 500
+    );
     return () => {
       clearTimeout(firstTimer);
+      clearTimeout(firstFlashTimer);
       clearTimeout(secondTimer);
+      clearTimeout(secondFlashTimer);
     };
   }, []);
 
@@ -34,14 +47,11 @@ const RaisedHandsView = () => {
       case 'highest':
         setStudentsArray(studentsSortedHighest);
         break;
-      case 'alpha':
-        setStudentsArray(studentsSortedAlpha);
-        break;
-      case 'random':
-        setStudentsArray(studentsSortedRandom);
+      case 'oldest':
+        setStudentsArray(studentsSortedOldest);
         break;
       default:
-        setStudentsArray((prevState) => prevState);
+        setStudentsArray(students);
     }
   };
   return (
@@ -64,58 +74,77 @@ const RaisedHandsView = () => {
             </span>
           </div>
 
-          <div className='select is-normal mt-4'>
-            <select onChange={(e) => sortStudentsArray(e.currentTarget.value)}>
-              <option value={'default'}>Sort by...</option>
-              <option value={'lowest'}>Lowest to highest participation</option>
-              <option value={'highest'}>Highest to lowest participation</option>
-              <option value={'alpha'}>Alphabetical</option>
-              <option value={'random'}>Random</option>
-            </select>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <span className='has-text-weight-medium mr-3'>Sort By:</span>
+            <div className='select is-normal mt-4'>
+              <select
+                onChange={(e) => sortStudentsArray(e.currentTarget.value)}
+              >
+                <option value={'newest'}>Newest to Oldest</option>
+                <option value={'oldest'}>Oldest to Newest</option>
+                <option value={'lowest'}>Low to High Participation</option>
+                <option value={'highest'}>High to Low Participation</option>
+              </select>
+            </div>
           </div>
-          <ul className='is-size-3 mt-5'>
-            {showFirst &&
-              studentsArray.map((name, idx) => {
-                return (
-                  idx <= 1 && (
+          {
+            <ul className='is-size-3 mt-5'>
+              {studentsArray.map((student, idx) => {
+                if (student === 'Johnny McDonald') {
+                  return (
+                    showLast && (
+                      <li key={idx}>
+                        <span
+                          className={flashColorShowLast ? 'has-text-link' : ''}
+                        >
+                          {student}
+                        </span>{' '}
+                        <span className='is-size-6 has-text-weight-semibold has-text-grey'>
+                          (few seconds ago)
+                        </span>
+                      </li>
+                    )
+                  );
+                } else if (
+                  student === 'Jane Fuller' ||
+                  student === 'Carolyn Armstrong'
+                ) {
+                  return (
+                    showFirst && (
+                      <li key={idx}>
+                        <span
+                          className={flashColorShowFirst ? 'has-text-link' : ''}
+                        >
+                          {student}
+                        </span>{' '}
+                        <span className='is-size-6 has-text-weight-semibold has-text-grey'>
+                          (few seconds ago)
+                        </span>
+                      </li>
+                    )
+                  );
+                } else if (
+                  student === 'Albert Rios' ||
+                  student === 'Bryan Campbell'
+                ) {
+                  return (
                     <li key={idx}>
-                      {name}{' '}
+                      <span>{student}</span>{' '}
                       <span className='is-size-6 has-text-weight-semibold has-text-grey'>
-                        (few seconds ago)
+                        (2 minutes ago)
                       </span>
                     </li>
-                  )
-                );
+                  );
+                }
               })}
-            {showSecond &&
-              studentsArray.map((name, idx) => {
-                return (
-                  idx > 1 &&
-                  idx < 3 && (
-                    <li key={idx}>
-                      {name}{' '}
-                      <span className='is-size-6 has-text-weight-semibold has-text-grey'>
-                        (few seconds ago)
-                      </span>
-                    </li>
-                  )
-                );
-              })}
-              <hr/>
-            {students.map((name, idx) => {
-              return (
-                idx > 2 &&
-                idx < 5 && (
-                  <li key={idx} className='mr-6 has-text-grey'>
-                    {name}{' '}
-                    <span className='is-size-6 has-text-weight-semibold'>
-                      (2 minutes ago)
-                    </span>
-                  </li>
-                )
-              );
-            })}
-          </ul>
+            </ul>
+          }
         </div>
         <div
           style={{
