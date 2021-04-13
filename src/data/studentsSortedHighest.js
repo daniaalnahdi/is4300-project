@@ -1,7 +1,9 @@
 // for rasied hands
 const studentsSortedHighest = [
-  'Johnny McDonald',
   'Carolyn Armstrong',
+  'Johnny McDonald',
+  'Bryan Campbell',
+  'Albert Rios',
   'Jane Fuller',
 ];
 
