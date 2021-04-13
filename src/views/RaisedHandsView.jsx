@@ -16,12 +16,26 @@ const RaisedHandsView = () => {
   const [showLast, setShowSecond] = useState(false);
   const secondDelay = 4;
 
+  const [flashColorShowFirst, setFlashColorShowFirst] = useState(true);
+  const [flashColorShowLast, setFlashColorShowLast] = useState(true);
+
   useEffect(() => {
     let firstTimer = setTimeout(() => setShowFirst(true), firstDelay * 1000);
+    let firstFlashTimer = setTimeout(
+      () => setFlashColorShowFirst(false),
+      firstDelay * 1000 + 500
+    );
+
     let secondTimer = setTimeout(() => setShowSecond(true), secondDelay * 1000);
+    let secondFlashTimer = setTimeout(
+      () => setFlashColorShowLast(false),
+      secondDelay * 1000 + 500
+    );
     return () => {
       clearTimeout(firstTimer);
+      clearTimeout(firstFlashTimer);
       clearTimeout(secondTimer);
+      clearTimeout(secondFlashTimer);
     };
   }, []);
 
@@ -86,7 +100,11 @@ const RaisedHandsView = () => {
                   return (
                     showLast && (
                       <li key={idx}>
-                        {student}{' '}
+                        <span
+                          className={flashColorShowLast ? 'has-text-link' : ''}
+                        >
+                          {student}
+                        </span>{' '}
                         <span className='is-size-6 has-text-weight-semibold has-text-grey'>
                           (few seconds ago)
                         </span>
@@ -100,7 +118,11 @@ const RaisedHandsView = () => {
                   return (
                     showFirst && (
                       <li key={idx}>
-                        {student}{' '}
+                        <span
+                          className={flashColorShowFirst ? 'has-text-link' : ''}
+                        >
+                          {student}
+                        </span>{' '}
                         <span className='is-size-6 has-text-weight-semibold has-text-grey'>
                           (few seconds ago)
                         </span>
@@ -113,7 +135,7 @@ const RaisedHandsView = () => {
                 ) {
                   return (
                     <li key={idx}>
-                      {student}{' '}
+                      <span>{student}</span>{' '}
                       <span className='is-size-6 has-text-weight-semibold has-text-grey'>
                         (2 minutes ago)
                       </span>
