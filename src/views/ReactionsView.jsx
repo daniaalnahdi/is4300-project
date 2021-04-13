@@ -42,9 +42,7 @@ const ReactionsView = () => {
         </h2>
         <div className='box'>
           <p className='has-text-weight-semibold'>
-            Reactions during this{' '}
-            <span className='has-text-info'>{timeElapsed}</span> second
-            period...
+            Reactions during this <span>{timeElapsed}</span> second period...
           </p>
           <div
             className='has-text-weight-bold mt-3 reactions-list'
