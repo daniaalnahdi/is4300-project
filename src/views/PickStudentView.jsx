@@ -82,6 +82,8 @@ const PickStudentView = () => {
             }
           >
             <div style={{ marginRight: '5em', marginLeft: '5em' }}>
+            <span className='has-text-weight-medium mr-3'>Include:</span>
+
               <label className='checkbox mr-4'>
                 <input
                   type='checkbox'
