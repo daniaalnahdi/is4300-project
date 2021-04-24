@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/is4300-project/static/css/main.e22d9045.chunk.css",
-    "main.js": "/is4300-project/static/js/main.e61ad53d.chunk.js",
-    "main.js.map": "/is4300-project/static/js/main.e61ad53d.chunk.js.map",
-    "runtime-main.js": "/is4300-project/static/js/runtime-main.77d48c27.js",
-    "runtime-main.js.map": "/is4300-project/static/js/runtime-main.77d48c27.js.map",
-    "static/js/2.a682abdd.chunk.js": "/is4300-project/static/js/2.a682abdd.chunk.js",
-    "static/js/2.a682abdd.chunk.js.map": "/is4300-project/static/js/2.a682abdd.chunk.js.map",
-    "index.html": "/is4300-project/index.html",
-    "static/css/main.e22d9045.chunk.css.map": "/is4300-project/static/css/main.e22d9045.chunk.css.map",
-    "static/js/2.a682abdd.chunk.js.LICENSE.txt": "/is4300-project/static/js/2.a682abdd.chunk.js.LICENSE.txt"
+    "main.css": "/is4300-project-v1/static/css/main.301d21f1.chunk.css",
+    "main.js": "/is4300-project-v1/static/js/main.d356a619.chunk.js",
+    "main.js.map": "/is4300-project-v1/static/js/main.d356a619.chunk.js.map",
+    "runtime-main.js": "/is4300-project-v1/static/js/runtime-main.c1f8d80a.js",
+    "runtime-main.js.map": "/is4300-project-v1/static/js/runtime-main.c1f8d80a.js.map",
+    "static/js/2.884825fd.chunk.js": "/is4300-project-v1/static/js/2.884825fd.chunk.js",
+    "static/js/2.884825fd.chunk.js.map": "/is4300-project-v1/static/js/2.884825fd.chunk.js.map",
+    "index.html": "/is4300-project-v1/index.html",
+    "static/css/main.301d21f1.chunk.css.map": "/is4300-project-v1/static/css/main.301d21f1.chunk.css.map",
+    "static/js/2.884825fd.chunk.js.LICENSE.txt": "/is4300-project-v1/static/js/2.884825fd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.77d48c27.js",
-    "static/js/2.a682abdd.chunk.js",
-    "static/css/main.e22d9045.chunk.css",
-    "static/js/main.e61ad53d.chunk.js"
+    "static/js/runtime-main.c1f8d80a.js",
+    "static/js/2.884825fd.chunk.js",
+    "static/css/main.301d21f1.chunk.css",
+    "static/js/main.d356a619.chunk.js"
   ]
 }
